@@ -1,0 +1,209 @@
+sudo useradd -m -d /home/username username -s /bin/bash -p password
+users: to show the login users .
+last: to show last login users , log history .
+locate: to show file or directory location 
+whereis: to show the place of any command . 
+shutdown -r: to reboot .
+shutdown -h: to shutdown 
+>>>>>>>>>>>>>>>>>>>>>>>>>>
+tee : to create file and ready to write inside it . 
+touch : to create file .
+mkdir : to create Directory 
+rmdir : to remove directory 
+mv sales HR : to rename Directory sales to HR.
+>>>>>>>>>>>>>>>>>>>>>>>>>
+to create new user :
+useradd -c "bibo" -p "swd" bibo
+>>>>>>>>>>>>>>>>>>>>>>>>
+to delet the user :
+userdel -r bibo 
+>>>>>>>>>>>>>>>>>>>>>>>>
+to see any directory or file permssion by numbers: 
+#stat -c '%a' handover >> use command state - c '%a' and then the file or directory name such as handover 
+644 | 777 
+> to change the file or directory permssion :
+#chmod 777 handover
+>>>>>>>>>>>>>>>>>>>>>>>
+to write more than one command in only one command : ( alais command do it ) 
+> alias p='pwd ; ls -f' > means when i press on the letter ( p ) it will display what's done in the alias command just by single letter ( p ) 
+>>>>>>>>>>>>>>>>>>>>>>>
+gzip -fr sales : to compress files & Directories ( for example sales file ) 
+gzip -fdr sales : to extract files & Directories
+gunzip sales : to uncompress sales file.  
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Date : to display time & date 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+at : to scadule script at specific time for only one time 
+
+at 02:50 
+at> ls -lf / > ali.txt :: it means at clock 02:50 display or list all files for root / in file ali.txt 
+--------------------------------------
+timedatectl set-ntp no : to disable sync with ntp
+timedatectl set–time 21:45:53 : to change your workstation time.
+date -s "16 FEB 2021 8:15:00" : to change your time (the day is 15 and FEB is the month)
+--------------------------------------
+service --status-all : displays all the services & running or not .
+---------------------------------
+service webmin stop : it means stop webmin service . 
+---------------------------------
+service webmin start : it means start webmin service . 
+--------------------------------
+vmstat : displays virtual memory info 
+--------------------------------
+iostat : displays cpu info & read and write on hard disks 
+--------------------------------
+tar -czvf sales.tar.gz + the path of directory or file : to compress & archive an Entire Directory or a Single File
+tar -czvf name-of-archive.tar.gz /path/to/directory-or-file
+--------------------------------
+tar -xzvf archive.tar.gz : to Extract an Archive
+---------------------------------
+cp -r SOURCEDIRECTORY TARGETDIRECTORY : to copy files & directories 
+--------------------------------
+ls /etc/cron* : to list of programs or scripts that are run hourly, daily, weekly, and monthly.
+-------------------------------
+crontab -l :To check whether you have a crontab file run this command
+-------------------------------
+crontab -e : To create or edit a crontab file run this command 
+-------------------------------
+sudo !! : to run the pervious command with sudo premssion .
+-------------------------------
+runlevel : displays on which run level ur OS working 
+------------------------------
+init 1 : to work on run level 1 ( maintince level ) without GUI .
+-------------------------------
+telinit 5 : to back to run level 5 with GUI ( Graphical Level )
+------------------------------
+dmesg : displays all Hardware Info that deticted whil booting 
+------------------------------
+dmesg | grep memory : displays memory info 
+----------------------------
+./ sales : to run any bash script write ./ and then the file name like sales for example .
+----------------------------
+useradd username : to create user with sudo permssion
+usermod -aG sudo username : to Add the new user to the sudo group .
+----------------------------
+tzselect : to change time zone 
+----------------------------
+ntpdate -s ntp.ubuntu.com : to change time server 
+----------------------------
+dpkg-reconfigure tzdata : the most effective way to change time zone
+----------------------------
+rm -r : to remove directioes and files inside it . 
+r stands for : Recursive : it means remove the the directory and it's inside it .
+----------------------------
+rm -rf : remove directory and fies inside it without any questions 
+f stands for : force 
+----------------------------
+ctrl a : get the cursor back to the first of the line. 
+ctrl e : get the cursor back to the end of the line. 
+ctrl k : Erease the line wherever the cursor stopped. 
+ctrl u : Erease the Current line. 
+ctrl d : logout 
+ctl s : to lock the terminal screen.
+ctrl q : to unlock the terminal screen. 
+ctrl h : to remove letters from the last to the begining.
+----------------------------
+lsblk : to display your hard disks 
+----------------------------
+fdisk -l : to display hard disks data
+--------------------------
+$ fdisk /dev/sdb : to creat new partion & delete partion , etc 
+$ partprobe: to get partition recognized without needed to reboot the system cause Without reboot, u will NOT be able to create a filesystem on your newly created or modified partitions with the mke2fs command.
+--------------------------
+dd if=/dev/sda1 of=/sda1.backup : this command to take backup from partition sda1 and copy it in file sda1.backup 
+--------------------------
+blkid : to display partions uuid for mounting 
+--------------------------
+cfdisk : to manage file system .
+-------------------------
+xrandr -o normal : takes your screen back to normal (landscape) rotation.
+-----------------------
+xrandr -q : to display all available system resolution.
+------------------------
+$ sudo nano /etc/bash.bashrc : to enable autocomplete while using root mood.
+from > # enable bash completion in interactive shells
+and Remove all # before words till #Fi
+- then you must write this command to apply changes.
+$ source /etc/bash.bashrc
+------------------------
+$ chown -R <username> <foldername> : to change user and dirctory permission
+.----------------------
+$ apropos network | more : list network tools 
+---------------------- 	
+journalctl -u httpd.service --since today : to check on how the service logs is running today
+-----------------------
+journalctl : to display the system logs 
+----------------------
+journalctl --since 09:00 --until "1 hour ago" : to display the logs since 9:00 till 1 hour ago.
+---------------------
+journalctl --since yesterday : to check yesterday logs 
+--------------------
+journalctl --since "2015-01-10" --until "2015-01-11 03:00" : to check system logs in specific date 
+--------------------
+lvcreate --size 2G --name lvswap data : to create swap file named lvswap.
+mkswap /dev/data/lvswap : to create swap file under data file	
+lvswapon : to activate swap file.
+$ sudo nano /etc/fstab : mount swap file here.
+cat /proc/swap : displays swap file size.
+free -m : displays memory info in miga bytes.
+free -g : displays memory info in Giga.
+vmstat : displasy physical and virtual memory info.
+----------------------
+$ hostnamectl set-hostname vm1 : to set/change machine name to vm1.
+$ nano /etc/hostname : to set/change machine name.
+------------------------
+$ nmtui : to edit a connection.
+----------------------
+$ df -h : lists disk spcaes
+----------------------------
+$ xrandr -s 1920x1200 : this is the perfect resolution 
+----------------------------
+$ sudo lshw : display all hardware info
+---------------------------
+$ curl ifconfig.co : to get your public ip 
+-----------------------
+du -sh /swd : to check swd directory/file size
+---------------------
+blkid /dev/sd* : displays hard disks UUID. 
+-------------------
+mkdir -p : to create more than one directory in the single command.
+-----------------
+$ netstat -ntlp : display network ports that running/listening on the server
+--------------------
+su -p linux_admin : to switch from a root user to another root user named linux_admin
+-------------------
+$ alias shortName="your custom command here" : to custom a temporary alias
+$ alias wr=”cd /var/www/html” : Here is an actual example: once you wrote wr it will redirct you to the mentioned path.
+
+to Creating Permanent Aliases: 
+$ vim ~/.bashrc : to write your aliases
+#My custom aliases
+alias home=”ssh -i ~/.ssh/mykep.pem tecmint@192.168.0.100” : once you wrote home witll take you to the mentioned path.
+alias ll="ls -alF" 
+
+#To remove an alias added via the command line can be unaliased using unalias command.
+$ unalias alias_name
+$ unalias -a [remove all alias]
+-------------------
+nproc : for checking your CPU core.
+------------------
+lsb_release -a : get server release
+-----------------
+wc -l /etc/group : display the number of groups
+------------------
+more /etc/login.defs : get info about password policy/age , etc
+-------------------
+there are 3 main files to set password policy:
+1- /etc/login.defs
+2- /etc/pam.d/system-auth
+3- /etc/security/pwquality.conf
+note : before editing any file of them, best practice to take a backup of the file.
+-------------------
+to disable user account:
+change user shell from /bin/bash to /bin/nologin
+-------------------
+chage -l swd :To view a user swd account aging information like Last password change, Password expires, Account expires, etc
+-------------------
+$ nl : view text files with their lines numbers.
+-------------------
+vmware-modconfig --console --install-all : to resolve vmware Unable to recompile issues 
