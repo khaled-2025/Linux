@@ -1,0 +1,13 @@
+Simple Bash trick to find the largest files on Disk
+
+"find /* -type f -exec du -sh {} + | sort -hr | head -n10"
+
+This bash command lists 10 of the largest files on your Linux system.
+
+Explanation:
+
+👉 First, we use "find" to list all files starting at the root directory. We run "du" on them to get their sizes.
+👉 Next, we pipe this output to "sort" to sort all the files in descending order of size.
+👉 Finally, we use "head" to only display the top 10 files on the list.
+
+It's incredible what Linux lets you do through piping and a bunch of simple commands 🚀
